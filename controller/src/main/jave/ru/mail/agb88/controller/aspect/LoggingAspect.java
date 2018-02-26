@@ -19,7 +19,7 @@ public class LoggingAspect {
 
     @Around("!(within(ru.mail.agb88.controller.config..*)) && within(ru.mail.agb88..*)")
     public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
-        logger.info("init method: " + joinPoint.getSignature().getName() + " with arguments: " + Arrays.toString(joinPoint.getArgs()));
+        logger.info("start method: " + joinPoint.getSignature().getName() + " with arguments: " + Arrays.toString(joinPoint.getArgs()));
         Object obj = joinPoint.proceed(); //continue on the intercepted method
         logger.info("end method: " + joinPoint.getSignature().getName() + " with result: " + obj.toString());
         logger.info("--------------------------------------------------------------");

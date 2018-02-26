@@ -9,7 +9,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  * Created by AlexBal
  */
 @Configuration
-@EnableAspectJAutoProxy
 @ComponentScan("ru.mail.agb88")
+@EnableAspectJAutoProxy
 public class AppConfig {
 }
