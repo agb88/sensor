@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+    <definition name="template" template="/WEB-INF/jsp/base/template.jsp">
+        <put-attribute name="style" value=""/>
+        <put-attribute name="js" value=""/>
+        <put-attribute name="title" value=""/>
+        <put-attribute name="menu" value="/WEB-INF/jsp/base/menu.jsp"/>
+        <put-attribute name="body" value=""/>
+        <put-attribute name="footer" value="/WEB-INF/jsp/base/footer.jsp"/>
+    </definition>
+
+    <definition name="index" extends="template">
+        <put-attribute name="style" value="index.css"/>
+        <put-attribute name="js" value="index.js"/>
+        <put-attribute name="title" value="Сенсор"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/index.jsp"/>
+    </definition>
+
+</tiles-definitions>

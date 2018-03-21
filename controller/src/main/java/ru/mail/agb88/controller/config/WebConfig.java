@@ -10,8 +10,9 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.springframework.web.servlet.view.JstlView;
+import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
+import org.springframework.web.servlet.view.tiles3.TilesView;
+import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 import java.util.Locale;
 
@@ -42,13 +43,17 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public ViewResolver viewResolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix("/WEB-INF/");
-        viewResolver.setSuffix(".jsp");
-        viewResolver.setContentType("text/html;charset=UTF-8");
-        return viewResolver;
+    public ViewResolver tilesViewResolver() {
+        final TilesViewResolver resolver = new TilesViewResolver();
+        resolver.setViewClass(TilesView.class);
+        return resolver;
+    }
+
+    @Bean
+    public TilesConfigurer tilesConfigurer(){
+        TilesConfigurer tilesConfigurer = new TilesConfigurer();
+        tilesConfigurer.setDefinitions("/WEB-INF/jsp/base/tiles.xml");
+        return tilesConfigurer;
     }
 
     @Bean

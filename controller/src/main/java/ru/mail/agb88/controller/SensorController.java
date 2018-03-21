@@ -25,7 +25,7 @@ public class SensorController {
         this.sensorService = sensorService;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
     public String getPage(Model model) {
         List<SensorDTO> sensorDTO = sensorService.getSensorData();
         model.addAttribute("sensor", sensorDTO);

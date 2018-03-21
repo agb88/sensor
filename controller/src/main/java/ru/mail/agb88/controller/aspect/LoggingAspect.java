@@ -21,7 +21,7 @@ public class LoggingAspect {
     public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
         logger.info("start method: " + joinPoint.getSignature().getName() + " with arguments: " + Arrays.toString(joinPoint.getArgs()));
         Object obj = joinPoint.proceed(); //continue on the intercepted method
-        logger.info("end method: " + joinPoint.getSignature().getName() + " with result: " + obj.toString());
+        logger.info("end method: " + joinPoint.getSignature().getName() + " with result: " + (obj != null ? obj.toString() : "[not reproducible]"));
         logger.info("--------------------------------------------------------------");
         return obj;
     }

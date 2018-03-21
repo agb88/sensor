@@ -24,9 +24,9 @@ public class SensorServiceImpl implements SensorService {
 
     @Override
     public List<SensorDTO> getSensorData() {
-        List<Sensor> sensors = sensorDAO.getAll();
+        /*List<Sensor> sensors = sensorDAO.getAll();
         List<SensorDTO> sensorsDTO = null;
-        sensors.forEach(sensor -> sensorsDTO.add(Converter.sensorToSensorDTO(sensor)));
-        return sensorsDTO;
+        sensors.forEach(sensor -> sensorsDTO.add(Converter.sensorToSensorDTO(sensor)));*/
+        return null;
     }
 }
