@@ -1,7 +1,7 @@
 package ru.mail.agb88.controller.config.initializer;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
+import org.springframework.core.env.ConfigurableEnvironment;
+import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import ru.mail.agb88.controller.config.AppConfig;
@@ -13,11 +13,6 @@ import javax.servlet.Filter;
  * Created by AlexBal
  */
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
-    private static final String LOCATION = "D:/opt/images/";
-    private static final long MAX_FILE_SIZE = 1024 * 1024 * 2;
-
-    @Autowired
-    MessageSource msg;
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
@@ -38,4 +33,15 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
     protected Filter[] getServletFilters() {
         return new Filter[]{new CharacterEncodingFilter("UTF-8", true)};
     }
+
+    /**
+     * Changes Spring profile.
+     */
+    /*@Override
+    protected WebApplicationContext createRootApplicationContext() {
+        WebApplicationContext context = super.createRootApplicationContext();
+        ((ConfigurableEnvironment) context.getEnvironment()).setActiveProfiles("heroku");
+
+        return context;
+    }*/
 }

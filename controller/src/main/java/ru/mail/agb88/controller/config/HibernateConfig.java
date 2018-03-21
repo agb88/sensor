@@ -4,6 +4,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -33,25 +34,42 @@ public class HibernateConfig {
         properties.put("hibernate.format_sql", env.getProperty("hibernate.format_sql"));
         properties.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
         /*properties.put("hibernate.hbm2ddl.import_files", env.getProperty("hibernate.hbm2ddl.import_files"));*/
+
         return properties;
     }
 
     @Bean
-    public DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
-        dataSource.setUrl(env.getProperty("jdbc.url"));
-        dataSource.setUsername(env.getProperty("jdbc.username"));
-        dataSource.setPassword(env.getProperty("jdbc.password"));
-        return dataSource;
+    @Profile("default")
+    public DataSource developDataSource() {
+        DriverManagerDataSource developDataSource = new DriverManagerDataSource();
+        developDataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
+        developDataSource.setUrl(env.getProperty("jdbc.url"));
+        developDataSource.setUsername(env.getProperty("jdbc.username"));
+        developDataSource.setPassword(env.getProperty("jdbc.password"));
+
+        return developDataSource;
     }
 
     @Bean
-    public LocalSessionFactoryBean sessionFactory() {
+    @Profile("heroku")
+    public DataSource herokuDataSource() {
+        DriverManagerDataSource herokuDataSource = new DriverManagerDataSource();
+        herokuDataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
+        herokuDataSource.setUrl(env.getProperty("heroku.jdbc.url"));
+        herokuDataSource.setUsername(env.getProperty("heroku.jdbc.username"));
+        herokuDataSource.setPassword(env.getProperty("heroku.jdbc.password"));
+
+        return herokuDataSource;
+    }
+
+    @Bean
+    @Autowired
+    public LocalSessionFactoryBean sessionFactory(DataSource dataSource) {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-        sessionFactory.setDataSource(dataSource());
+        sessionFactory.setDataSource(dataSource);
         sessionFactory.setPackagesToScan("ru.mail.agb88.repository.model");
         sessionFactory.setHibernateProperties(hibernateProperties());
+
         return sessionFactory;
     }
 
@@ -60,6 +78,7 @@ public class HibernateConfig {
     public HibernateTransactionManager transactionManager(SessionFactory s) {
         HibernateTransactionManager txManager = new HibernateTransactionManager();
         txManager.setSessionFactory(s);
+
         return txManager;
     }
 }
