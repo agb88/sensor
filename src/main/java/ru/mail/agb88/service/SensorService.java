@@ -8,5 +8,7 @@ import java.util.List;
  * Created by AlexBal 25.11.2017
  */
 public interface SensorService {
-    List<SensorDTO> getSensorData();
+    SensorDTO setData(SensorDTO sensorDTO);
+
+    List<SensorDTO> getAll();
 }

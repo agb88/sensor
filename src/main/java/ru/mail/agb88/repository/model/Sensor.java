@@ -1,6 +1,7 @@
 package ru.mail.agb88.repository.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * Created by AlexBal 25.11.2017
@@ -13,6 +14,9 @@ public class Sensor {
     @Column (name = "F_ID", insertable = false, updatable = false)
     private Long id;
 
+    @Column(name = "F_SENSOR_ID")
+    private Long sensorId;
+
     @Column(name = "F_VALUE")
     private Long value;
 
@@ -22,6 +26,14 @@ public class Sensor {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getSensorId() {
+        return sensorId;
+    }
+
+    public void setSensorId(Long sensorId) {
+        this.sensorId = sensorId;
     }
 
     public Long getValue() {
@@ -35,8 +47,24 @@ public class Sensor {
     public Sensor() {
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Sensor sensor = (Sensor) o;
+        return Objects.equals(id, sensor.id) &&
+                Objects.equals(sensorId, sensor.sensorId) &&
+                Objects.equals(value, sensor.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, sensorId, value);
+    }
+
     public static final class Builder {
         private Long id;
+        private Long sensorId;
         private Long value;
 
         private Builder() {
@@ -51,6 +79,11 @@ public class Sensor {
             return this;
         }
 
+        public Builder sensorId(Long sensorId) {
+            this.sensorId = sensorId;
+            return this;
+        }
+
         public Builder value(Long value) {
             this.value = value;
             return this;
@@ -59,6 +92,7 @@ public class Sensor {
         public Sensor build() {
             Sensor sensor = new Sensor();
             sensor.setId(id);
+            sensor.setSensorId(sensorId);
             sensor.setValue(value);
             return sensor;
         }

@@ -1,4 +1,4 @@
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
@@ -9,8 +9,10 @@
 
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/main.css"/>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/<tiles:insertAttribute name="style"/>"/>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/<tiles:insertAttribute name="js"/>"></script>
+    <link rel="stylesheet" type="text/css"
+          href="${pageContext.request.contextPath}/resources/css/<tiles:insertAttribute name="style"/>"/>
+    <script type="text/javascript"
+            src="${pageContext.request.contextPath}/resources/js/<tiles:insertAttribute name="js"/>"></script>
 
     <title><tiles:insertAttribute name="title"/></title>
     <!--[if (lt IE 9) | (IEMobile)]>
@@ -32,7 +34,7 @@
 <!--[if (lt IE 9) | (IEMobile)]><p class="ie">Ваш браузер устарел!!! Обновить можно тут:<br><a
         href="http://updatebrowser.net/">http://updatebrowser.net/</a></p><![endif]-->
 <tiles:insertAttribute name="menu"/>
-<tiles:insertAttribute name="body"/>
+<div class="body"><tiles:insertAttribute name="body"/></div>
 <footer><tiles:insertAttribute name="footer"/></footer>
 </body>
 </html>
