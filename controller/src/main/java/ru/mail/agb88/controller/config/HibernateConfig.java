@@ -33,12 +33,11 @@ public class HibernateConfig {
         properties.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
         properties.put("hibernate.format_sql", env.getProperty("hibernate.format_sql"));
         properties.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
-        /*properties.put("hibernate.hbm2ddl.import_files", env.getProperty("hibernate.hbm2ddl.import_files"));*/
 
         return properties;
     }
 
-    @Bean
+    /*@Bean
     @Profile("default")
     public DataSource developDataSource() {
         DriverManagerDataSource developDataSource = new DriverManagerDataSource();
@@ -48,10 +47,10 @@ public class HibernateConfig {
         developDataSource.setPassword(env.getProperty("jdbc.password"));
 
         return developDataSource;
-    }
+    }*/
 
     @Bean
-    @Profile("heroku")
+    //@Profile("heroku")
     public DataSource herokuDataSource() {
         DriverManagerDataSource herokuDataSource = new DriverManagerDataSource();
         herokuDataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
