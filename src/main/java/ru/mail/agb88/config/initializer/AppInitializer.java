@@ -1,10 +1,8 @@
-package ru.mail.agb88.controller.config.initializer;
+package ru.mail.agb88.config.initializer;
 
-import org.springframework.core.env.ConfigurableEnvironment;
-import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-import ru.mail.agb88.controller.config.AppConfig;
+import ru.mail.agb88.config.AppConfig;
 
 import javax.servlet.Filter;
 

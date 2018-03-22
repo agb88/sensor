@@ -6,7 +6,6 @@ import ru.mail.agb88.repository.SensorDAO;
 import ru.mail.agb88.repository.model.Sensor;
 import ru.mail.agb88.service.DTO.SensorDTO;
 import ru.mail.agb88.service.SensorService;
-import ru.mail.agb88.service.util.Converter;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package ru.mail.agb88.controller.config;
+package ru.mail.agb88.config;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;

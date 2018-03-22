@@ -1,4 +1,4 @@
-package ru.mail.agb88.controller.aspect;
+package ru.mail.agb88.config.aspect;
 /**
  * Created by AlexBal 23.11.2017
  */
@@ -17,7 +17,7 @@ import java.util.Arrays;
 public class LoggingAspect {
     private static final Logger logger = Logger.getLogger(LoggingAspect.class);
 
-    @Around("!(within(ru.mail.agb88.controller.config..*)) && within(ru.mail.agb88..*)")
+    @Around("!(within(ru.mail.agb88.config..*)) && within(ru.mail.agb88..*)")
     public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
         logger.info("start method: " + joinPoint.getSignature().getName() + " with arguments: " + Arrays.toString(joinPoint.getArgs()));
         Object obj = joinPoint.proceed(); //continue on the intercepted method
