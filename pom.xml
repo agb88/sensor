@@ -153,9 +153,6 @@
 
     <profiles>
         <profile>
-            <id>develop</id>
-        </profile>
-        <profile>
             <id>heroku</id>
             <build>
                 <plugins>

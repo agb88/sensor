@@ -37,20 +37,7 @@ public class HibernateConfig {
         return properties;
     }
 
-    /*@Bean
-    @Profile("default")
-    public DataSource developDataSource() {
-        DriverManagerDataSource developDataSource = new DriverManagerDataSource();
-        developDataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
-        developDataSource.setUrl(env.getProperty("jdbc.url"));
-        developDataSource.setUsername(env.getProperty("jdbc.username"));
-        developDataSource.setPassword(env.getProperty("jdbc.password"));
-
-        return developDataSource;
-    }*/
-
     @Bean
-    //@Profile("heroku")
     public DataSource herokuDataSource() {
         DriverManagerDataSource herokuDataSource = new DriverManagerDataSource();
         herokuDataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
