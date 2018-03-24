@@ -5,7 +5,7 @@ package ru.mail.agb88.service.DTO;
  */
 public class SensorDTO {
     private Long id;
-    private Long value;
+    private Double value;
 
     public Long getId() {
         return id;
@@ -15,17 +15,17 @@ public class SensorDTO {
         this.id = id;
     }
 
-    public Long getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(Long value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 
     public static final class Builder {
         private Long id;
-        private Long value;
+        private Double value;
 
         private Builder() {
         }
@@ -39,7 +39,7 @@ public class SensorDTO {
             return this;
         }
 
-        public Builder value(Long value) {
+        public Builder value(Double value) {
             this.value = value;
             return this;
         }

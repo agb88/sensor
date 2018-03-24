@@ -18,7 +18,7 @@ public class Sensor {
     private Long sensorId;
 
     @Column(name = "F_VALUE")
-    private Long value;
+    private Double value;
 
     public Long getId() {
         return id;
@@ -36,11 +36,11 @@ public class Sensor {
         this.sensorId = sensorId;
     }
 
-    public Long getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(Long value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 
@@ -65,7 +65,7 @@ public class Sensor {
     public static final class Builder {
         private Long id;
         private Long sensorId;
-        private Long value;
+        private Double value;
 
         private Builder() {
         }
@@ -84,7 +84,7 @@ public class Sensor {
             return this;
         }
 
-        public Builder value(Long value) {
+        public Builder value(Double value) {
             this.value = value;
             return this;
         }
