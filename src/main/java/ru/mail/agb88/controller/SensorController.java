@@ -30,7 +30,7 @@ public class SensorController {
         return "index";
     }
 
-    @RequestMapping(value = "/data", method = RequestMethod.POST)
+    @RequestMapping(value = "/data", method = {RequestMethod.GET, RequestMethod.POST})
     public ResponseEntity setData(SensorDTO sensorDTO) {
         sensorService.setData(sensorDTO);
         return new ResponseEntity(HttpStatus.OK);
