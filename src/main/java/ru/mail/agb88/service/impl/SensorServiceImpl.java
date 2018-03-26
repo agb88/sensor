@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.mail.agb88.repository.SensorDAO;
-import ru.mail.agb88.repository.model.Sensor;
 import ru.mail.agb88.service.DTO.SensorDTO;
 import ru.mail.agb88.service.SensorService;
 import ru.mail.agb88.service.util.Converter;

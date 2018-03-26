@@ -7,26 +7,14 @@ import java.util.Objects;
  * Created by AlexBal 25.11.2017
  */
 @Entity
-@Table(name="T_SENSOR")
-public class Sensor {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "F_ID", insertable = false, updatable = false)
-    private Long id;
+@Table(name = "T_SENSOR")
+public class Sensor extends GeneralEntity{
 
     @Column(name = "F_SENSOR_ID")
     private Long sensorId;
 
     @Column(name = "F_VALUE")
     private Double value;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Long getSensorId() {
         return sensorId;
@@ -51,15 +39,15 @@ public class Sensor {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         Sensor sensor = (Sensor) o;
-        return Objects.equals(id, sensor.id) &&
-                Objects.equals(sensorId, sensor.sensorId) &&
+        return Objects.equals(sensorId, sensor.sensorId) &&
                 Objects.equals(value, sensor.value);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, sensorId, value);
+        return Objects.hash(super.hashCode(), sensorId, value);
     }
 
     public static final class Builder {
