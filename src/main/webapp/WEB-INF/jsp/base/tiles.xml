@@ -12,11 +12,17 @@
         <put-attribute name="footer" value="/WEB-INF/jsp/base/footer.jsp"/>
     </definition>
 
-    <definition name="index" extends="template">
+    <definition name="data" extends="template">
         <put-attribute name="style" value="index.css"/>
         <put-attribute name="js" value="index.js"/>
         <put-attribute name="title" value="Сенсор"/>
-        <put-attribute name="body" value="/WEB-INF/jsp/index.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/data.jsp"/>
+    </definition>
+    <definition name="login" extends="template">
+        <put-attribute name="style" value="login.css"/>
+        <put-attribute name="js" value=""/>
+        <put-attribute name="title" value="Вход"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/login.jsp"/>
     </definition>
 
 </tiles-definitions>

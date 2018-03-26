@@ -24,13 +24,13 @@ public class SensorController {
         this.sensorService = sensorService;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String welcomeHandler(Model model){
+    @RequestMapping(value = "/data", method = RequestMethod.GET)
+    public String getData(Model model) {
         model.addAttribute("sensors", sensorService.getAll());
-        return "index";
+        return "data";
     }
 
-    @RequestMapping(value = "/data", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/data", method = RequestMethod.POST)
     public ResponseEntity setData(SensorDTO sensorDTO) {
         sensorService.setData(sensorDTO);
         return new ResponseEntity(HttpStatus.OK);

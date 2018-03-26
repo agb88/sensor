@@ -13,12 +13,15 @@ import java.util.*;
  */
 public class Util {
 
+    private static String USER_START_URL = "/user/items";
+    private static String ADMIN_START_URL = "/admin/items";
+
     /**
      * Returns logged in user.
      *
      * @return logged in user.
      */
-    public static UserPrincipal findLoggedInUser() {
+    public static UserPrincipal getLoggedInUser() {
         UserPrincipal userPrincipal = null;
         Object o = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (o instanceof UserDetails) {
@@ -48,9 +51,9 @@ public class Util {
         Collection<? extends GrantedAuthority> authorities = userDetails.getAuthorities();
         for (GrantedAuthority grantedAuthority : authorities) {
             if (grantedAuthority.getAuthority().equals(Role.USER.name())) {
-                return "/user/items";
+                return USER_START_URL;
             } else if (grantedAuthority.getAuthority().equals(Role.ADMIN.name()) || grantedAuthority.getAuthority().equals(Role.SUPER_ADMIN.name())) {
-                return "/admin/items";
+                return ADMIN_START_URL;
             }
         }
         throw new IllegalStateException();

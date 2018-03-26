@@ -19,7 +19,7 @@ public class UserAccessDeniedHandler extends AccessDeniedHandlerImpl {
 
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
-        UserPrincipal userPrincipal = Util.findLoggedInUser();
+        UserPrincipal userPrincipal = Util.getLoggedInUser();
         if (userPrincipal != null) {
             response.sendRedirect(Util.getRedirectUrl(userPrincipal));
         } else {
