@@ -33,8 +33,10 @@
 <body>
 <!--[if (lt IE 9) | (IEMobile)]><p class="ie">Ваш браузер устарел!!! Обновить можно тут:<br><a
         href="http://updatebrowser.net/">http://updatebrowser.net/</a></p><![endif]-->
-<tiles:insertAttribute name="menu"/>
-<div class="body"><tiles:insertAttribute name="body"/></div>
+<div class="content">
+    <tiles:insertAttribute name="menu"/>
+    <tiles:insertAttribute name="body"/>
+</div>
 <footer><tiles:insertAttribute name="footer"/></footer>
 </body>
 </html>

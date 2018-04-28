@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import ru.mail.agb88.service.DTO.SensorDTO;
+import ru.mail.agb88.service.DTO.SensorDataDTO;
 import ru.mail.agb88.service.SensorService;
 
 /**
@@ -24,15 +25,15 @@ public class SensorController {
         this.sensorService = sensorService;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String welcomeHandler(Model model){
+    @RequestMapping(value = "/data", method = RequestMethod.GET)
+    public String getData(Model model) {
         model.addAttribute("sensors", sensorService.getAll());
-        return "index";
+
+        return "data";
     }
 
-    @RequestMapping(value = "/data", method = {RequestMethod.GET, RequestMethod.POST})
-    public ResponseEntity setData(SensorDTO sensorDTO) {
-        sensorService.setData(sensorDTO);
-        return new ResponseEntity(HttpStatus.OK);
+    @RequestMapping(value = "/data", method = RequestMethod.POST)
+    public ResponseEntity setData(SensorDataDTO sensorDataDTO) {
+        return new ResponseEntity(sensorService.setData(sensorDataDTO));
     }
 }
