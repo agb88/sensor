@@ -1,6 +1,7 @@
 package ru.mail.agb88.repository.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -8,11 +9,11 @@ import java.util.Objects;
  */
 
 @MappedSuperclass
-public class GeneralEntity {
+public class GeneralEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "F_ID", insertable = false, updatable = false)
+    @Column(name = "ID")
     private Long id;
 
     public Long getId() {

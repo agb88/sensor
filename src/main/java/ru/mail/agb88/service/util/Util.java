@@ -13,13 +13,11 @@ import java.util.*;
  */
 public class Util {
 
-    private static String USER_START_URL = "/user/items";
-    private static String ADMIN_START_URL = "/admin/items";
+    private final static String USER_START_URL = "/user/items";
+    private final static String ADMIN_START_URL = "/admin/items";
 
     /**
-     * Returns logged in user.
-     *
-     * @return logged in user.
+     * Returns current user or null.
      */
     public static UserPrincipal getLoggedInUser() {
         UserPrincipal userPrincipal = null;

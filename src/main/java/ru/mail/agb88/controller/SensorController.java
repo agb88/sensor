@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import ru.mail.agb88.service.DTO.SensorDTO;
+import ru.mail.agb88.service.DTO.SensorDataDTO;
 import ru.mail.agb88.service.SensorService;
 
 /**
@@ -27,12 +28,12 @@ public class SensorController {
     @RequestMapping(value = "/data", method = RequestMethod.GET)
     public String getData(Model model) {
         model.addAttribute("sensors", sensorService.getAll());
+
         return "data";
     }
 
     @RequestMapping(value = "/data", method = RequestMethod.POST)
-    public ResponseEntity setData(SensorDTO sensorDTO) {
-        sensorService.setData(sensorDTO);
-        return new ResponseEntity(HttpStatus.OK);
+    public ResponseEntity setData(SensorDataDTO sensorDataDTO) {
+        return new ResponseEntity(sensorService.setData(sensorDataDTO));
     }
 }

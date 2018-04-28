@@ -8,20 +8,20 @@ import java.util.Objects;
  */
 
 @Entity
-@Table(name = "T_USER")
+@Table(name = "USER")
 public class User extends GeneralEntity {
 
-    @Column(name = "F_EMAIL", nullable = false)
+    @Column(name = "EMAIL", nullable = false)
     private String email;
 
-    @Column (name = "F_PASSWORD")
+    @Column (name = "PASSWORD")
     private String password;
 
-    @Column (name = "F_ROLE")
+    @Column (name = "ROLE")
     @Enumerated(value = EnumType.ORDINAL)
     private Role role;
 
-    @Column (name = "F_ENABLED")
+    @Column (name = "ENABLED")
     private boolean isEnabled;
 
     public String getEmail() {

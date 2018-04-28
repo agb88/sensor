@@ -23,7 +23,7 @@ public class UserAccessDeniedHandler extends AccessDeniedHandlerImpl {
         if (userPrincipal != null) {
             response.sendRedirect(Util.getRedirectUrl(userPrincipal));
         } else {
-            super.handle(request,response,accessDeniedException);
+            super.handle(request, response, accessDeniedException);
         }
     }
 }
