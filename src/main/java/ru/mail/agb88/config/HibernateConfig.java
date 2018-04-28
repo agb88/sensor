@@ -1,6 +1,7 @@
 package ru.mail.agb88.config;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AvailableSettings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.util.Properties;
+import java.util.TimeZone;
 
 /**
  * Hibernate configuration
@@ -28,10 +30,11 @@ public class HibernateConfig {
 
     private Properties hibernateProperties() {
         Properties properties = new Properties();
-        properties.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
-        properties.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
-        properties.put("hibernate.format_sql", env.getProperty("hibernate.format_sql"));
-        properties.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
+        properties.put(AvailableSettings.DIALECT, env.getProperty(AvailableSettings.DIALECT));
+        properties.put(AvailableSettings.SHOW_SQL, env.getProperty(AvailableSettings.SHOW_SQL));
+        properties.put(AvailableSettings.FORMAT_SQL, env.getProperty(AvailableSettings.FORMAT_SQL));
+        properties.put(AvailableSettings.HBM2DDL_AUTO, env.getProperty(AvailableSettings.HBM2DDL_AUTO));
+        properties.put(AvailableSettings.JDBC_TIME_ZONE, TimeZone.getTimeZone("GMT+3:00"));
 
         return properties;
     }
