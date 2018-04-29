@@ -3,7 +3,6 @@ package ru.mail.agb88.repository.model;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -20,10 +19,9 @@ public class SensorData extends GeneralEntity {
     @Column(name = "DATA")
     private Float data;
 
-    @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
     @Column(name = "DATE", updatable = false)
-    private Calendar creatingDate;
+    private Date creatingDate;
 
     public SensorData() {
     }
@@ -44,11 +42,11 @@ public class SensorData extends GeneralEntity {
         this.data = data;
     }
 
-    public Calendar getCreatingDate() {
+    public Date getCreatingDate() {
         return creatingDate;
     }
 
-    public void setCreatingDate(Calendar creatingDate) {
+    public void setCreatingDate(Date creatingDate) {
         this.creatingDate = creatingDate;
     }
 }
