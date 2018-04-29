@@ -35,7 +35,7 @@ public class Converter {
             sensorDataDTO.setId(data.getId());
             sensorDataDTO.setSensorId(data.getSensorId());
             sensorDataDTO.setData(data.getData());
-            sensorDataDTO.setCreatingDate(new SimpleDateFormat("HH:mm dd.MM.yyyy").format(data.getCreatingDate()));
+            sensorDataDTO.setCreatingDate(new SimpleDateFormat("HH:mm:ss dd.MM.yyyy").format(data.getCreatingDate().getTime()));
 
             return sensorDataDTO;
         }).collect(Collectors.toList());
