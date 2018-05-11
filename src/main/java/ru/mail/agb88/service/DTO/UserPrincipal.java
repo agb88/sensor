@@ -1,6 +1,5 @@
 package ru.mail.agb88.service.DTO;
 
-import org.apache.log4j.Logger;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,7 +13,6 @@ import java.util.List;
  * Сущность для авторизации
  */
 public class UserPrincipal implements UserDetails {
-    private final Logger logger = Logger.getLogger(UserPrincipal.class);
     private Collection<? extends GrantedAuthority> authorities;
     private Long id;
     private String email;
@@ -22,11 +20,11 @@ public class UserPrincipal implements UserDetails {
     private boolean isEnabled;
 
     public UserPrincipal(User user) {
+        this.id = user.getId();
+        this.email = user.getEmail();
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(user.getRole().name()));
         this.authorities = authorities;
-        this.id = user.getId();
-        this.email = user.getEmail();
         this.password = user.getPassword();
         this.isEnabled = user.isEnabled();
     }
