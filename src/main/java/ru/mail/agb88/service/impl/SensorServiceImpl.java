@@ -10,7 +10,7 @@ import ru.mail.agb88.repository.model.Sensor;
 import ru.mail.agb88.service.DTO.SensorDTO;
 import ru.mail.agb88.service.DTO.SensorDataDTO;
 import ru.mail.agb88.service.SensorService;
-import ru.mail.agb88.service.util.Converter;
+import ru.mail.agb88.service.util.ConvertUtil;
 
 import java.util.List;
 
@@ -37,13 +37,13 @@ public class SensorServiceImpl implements SensorService {
             return HttpStatus.FORBIDDEN;
         }
 
-        sensorDataDAO.save(Converter.toSensorData(sensorDataDTO));
+        sensorDataDAO.save(ConvertUtil.convertToSensorData(sensorDataDTO));
 
         return HttpStatus.OK;
     }
 
     @Override
     public List<SensorDTO> getAll() {
-        return Converter.toSensorDTOs(sensorDAO.findAll());
+        return ConvertUtil.convertToSensorDTOs(sensorDAO.findAll());
     }
 }

@@ -1,6 +1,5 @@
 package ru.mail.agb88.service.util;
 
-import org.hibernate.Hibernate;
 import ru.mail.agb88.repository.model.Sensor;
 import ru.mail.agb88.repository.model.SensorData;
 import ru.mail.agb88.service.DTO.SensorDTO;
@@ -14,22 +13,22 @@ import java.util.stream.Collectors;
 /**
  * Created by AlexBal.
  */
-public class Converter {
+public class ConvertUtil {
 
-    public static List<SensorDTO> toSensorDTOs(List<Sensor> sensors) {
-        return sensors.stream().map(Converter::toSensorDTO).collect(Collectors.toList());
+    public static List<SensorDTO> convertToSensorDTOs(List<Sensor> sensors) {
+        return sensors.stream().map(ConvertUtil::convertToSensorDTO).collect(Collectors.toList());
     }
 
-    private static SensorDTO toSensorDTO(Sensor sensor) {
+    private static SensorDTO convertToSensorDTO(Sensor sensor) {
         SensorDTO sensorDTO = new SensorDTO();
         sensorDTO.setId(sensor.getId());
         sensorDTO.setPassword(sensor.getPassword());
-        sensorDTO.setSensorData(toSensorDataDTO(sensor.getSensorData()));
+        sensorDTO.setSensorData(convertToSensorDataDTO(sensor.getSensorData()));
 
         return sensorDTO;
     }
 
-    private static List<SensorDataDTO> toSensorDataDTO(Set<SensorData> sensorData) {
+    private static List<SensorDataDTO> convertToSensorDataDTO(Set<SensorData> sensorData) {
         return sensorData.stream().map(data -> {
             SensorDataDTO sensorDataDTO = new SensorDataDTO();
             sensorDataDTO.setId(data.getId());
@@ -41,7 +40,7 @@ public class Converter {
         }).collect(Collectors.toList());
     }
 
-    public static SensorData toSensorData(SensorDataDTO sensorDataDTO) {
+    public static SensorData convertToSensorData(SensorDataDTO sensorDataDTO) {
         SensorData sensorData = new SensorData();
         sensorData.setId(sensorDataDTO.getId());
         sensorData.setSensorId(sensorDataDTO.getSensorId());
