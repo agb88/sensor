@@ -18,7 +18,7 @@ public class User extends GeneralEntity {
     private String password;
 
     @Column (name = "ROLE")
-    @Enumerated(value = EnumType.ORDINAL)
+    @Enumerated
     private Role role;
 
     @Column (name = "ENABLED")

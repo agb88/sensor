@@ -11,7 +11,7 @@ import java.util.*;
 /**
  * Created by AlexBal.
  */
-public class Util {
+public class UserUtil {
 
     private final static String USER_START_URL = "/user/items";
     private final static String ADMIN_START_URL = "/admin/items";
@@ -19,12 +19,14 @@ public class Util {
     /**
      * Returns current user or null.
      */
-    public static UserPrincipal getLoggedInUser() {
+    public static UserPrincipal getCurrentUser() {
         UserPrincipal userPrincipal = null;
         Object o = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
         if (o instanceof UserDetails) {
             userPrincipal = ((UserPrincipal) o);
         }
+
         return userPrincipal;
     }
 
@@ -36,6 +38,7 @@ public class Util {
     public static List<Role> getRolesList() {
         List<Role> roles = new ArrayList<>();
         Collections.addAll(roles, Role.values());
+
         return roles;
     }
 
@@ -49,8 +52,10 @@ public class Util {
         Collection<? extends GrantedAuthority> authorities = userDetails.getAuthorities();
         for (GrantedAuthority grantedAuthority : authorities) {
             if (grantedAuthority.getAuthority().equals(Role.USER.name())) {
+
                 return USER_START_URL;
             } else if (grantedAuthority.getAuthority().equals(Role.ADMIN.name()) || grantedAuthority.getAuthority().equals(Role.SUPER_ADMIN.name())) {
+
                 return ADMIN_START_URL;
             }
         }

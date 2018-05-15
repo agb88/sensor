@@ -18,24 +18,13 @@
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/${script}"></script>
     </c:if>
     <title><tiles:getAsString name="title"/></title>
-    <!--[if (lt IE 9) | (IEMobile)]>
-    <style>
-        .ie {
-            font-size: 50px;
-            display: block;
-            background-color: red;
-            color: black;
-            width: 100%;
-            height: 500px;
-            text-align: center;
-            padding-top: 200px;
-        }
-    </style>
-    <![endif]-->
 </head>
 <body>
-<!--[if (lt IE 9) | (IEMobile)]><p class="ie">Ваш браузер устарел!!! Обновить можно тут:<br><a
-        href="http://updatebrowser.net/">http://updatebrowser.net/</a></p><![endif]-->
+<!--[if (lt IE 9) | (IEMobile)]>
+<p style="font-size: 50px; display: block; background-color: red; color: black; width: 100%; height: 500px; text-align: center; padding-top: 200px;">
+    Ваш браузер устарел!!! Обновить можно тут:<br><a href="http://updatebrowser.net/">http://updatebrowser.net/</a></p>
+<![endif]-->
+<div style="height: 1px;"></div>
 <div class="content">
     <tiles:insertAttribute name="menu"/>
     <tiles:insertAttribute name="body"/>
