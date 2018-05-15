@@ -28,7 +28,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-
     private DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
         authenticationProvider.setUserDetailsService(userDetailsService);
@@ -60,11 +59,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                //.antMatchers("/admin/users/**").hasAuthority(Role.SUPER_ADMIN.name())
-                //.antMatchers("/admin/**").hasAnyAuthority(Role.ADMIN.name(), Role.SUPER_ADMIN.name())
+                .antMatchers("/admin/users/**").hasAuthority(Role.SUPER_ADMIN.name())
+                .antMatchers("/admin/**").hasAnyAuthority(Role.ADMIN.name(), Role.SUPER_ADMIN.name())
                 .antMatchers("/", "/login").anonymous()
                 .antMatchers("/resources/**", "/images/**", "/error").permitAll()
-                //.antMatchers("/**").authenticated()
                 .and()
                 .exceptionHandling().accessDeniedHandler(accessDeniedHandler())
                 .and()

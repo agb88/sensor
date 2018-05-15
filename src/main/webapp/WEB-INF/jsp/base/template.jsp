@@ -9,12 +9,15 @@
 
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/main.css"/>
-    <link rel="stylesheet" type="text/css"
-          href="${pageContext.request.contextPath}/resources/css/<tiles:insertAttribute name="style"/>"/>
-    <script type="text/javascript"
-            src="${pageContext.request.contextPath}/resources/js/<tiles:insertAttribute name="js"/>"></script>
-
-    <title><tiles:insertAttribute name="title"/></title>
+    <tiles:importAttribute name="style" ignore="true"/>
+    <c:if test="${not empty style}">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/${style}"/>
+    </c:if>
+    <tiles:importAttribute name="script" ignore="true"/>
+    <c:if test="${not empty script}">
+        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/${script}"></script>
+    </c:if>
+    <title><tiles:getAsString name="title"/></title>
     <!--[if (lt IE 9) | (IEMobile)]>
     <style>
         .ie {

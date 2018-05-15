@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE tiles-definitions PUBLIC
-        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
-        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
     <definition name="template" template="/WEB-INF/jsp/base/template.jsp">
         <put-attribute name="style" value=""/>
         <put-attribute name="js" value=""/>
-        <put-attribute name="title" value=""/>
         <put-attribute name="menu" value=""/>
-        <put-attribute name="body" value=""/>
         <put-attribute name="footer" value="/WEB-INF/jsp/base/footer.jsp"/>
     </definition>
 
     <definition name="data" extends="template">
-        <put-attribute name="style" value="index.css"/>
-        <put-attribute name="js" value="index.js"/>
+        <put-attribute name="style" value="data.css"/>
+        <put-attribute name="js" value="data.js"/>
         <put-attribute name="title" value="Сенсор"/>
         <put-attribute name="body" value="/WEB-INF/jsp/data.jsp"/>
     </definition>
@@ -25,4 +23,11 @@
         <put-attribute name="body" value="/WEB-INF/jsp/login.jsp"/>
     </definition>
 
+
+    <definition name="overview" extends="template">
+        <put-attribute name="style" value="user/overview.css"/>
+        <put-attribute name="js" value=""/>
+        <put-attribute name="title" value="Кабинет пользователя"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/user/overview.jsp"/>
+    </definition>
 </tiles-definitions>
