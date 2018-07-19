@@ -4,13 +4,14 @@
 }
 
 body {
-    min-height: 100vh;
     position: relative;
-}
-
-.content {
-    text-align: center;
-    padding-bottom: 70px;
+    font-family: "SansSerif", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, .85);
+    background: url(../img/background/background.jpg) fixed;
+    background-size: cover;
 }
 
 table {
@@ -32,4 +33,33 @@ footer{
     height: 70px;
     line-height: 70px;
     width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.content {
+    text-align: center;
+    padding-bottom: 70px;
+    max-width: 1170px;
 }

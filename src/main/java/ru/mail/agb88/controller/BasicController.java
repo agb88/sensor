@@ -10,7 +10,7 @@ import ru.mail.agb88.service.util.UserUtil;
  * Created by AlexBal 26.03.2018
  */
 @Controller
-public class GeneralController {
+public class BasicController {
 
     /**
      * Login page

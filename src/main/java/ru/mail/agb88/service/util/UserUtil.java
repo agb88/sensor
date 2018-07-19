@@ -13,7 +13,7 @@ import java.util.*;
  */
 public class UserUtil {
 
-    private final static String USER_START_URL = "/user/items";
+    private final static String USER_START_URL = "/user/account";
     private final static String ADMIN_START_URL = "/admin/items";
 
     /**
@@ -31,11 +31,11 @@ public class UserUtil {
     }
 
     /**
-     * Returns collection of roles.
+     * Returns collection with all application roles.
      *
      * @return collection of roles.
      */
-    public static List<Role> getRolesList() {
+    public static List<Role> getAllRoles() {
         List<Role> roles = new ArrayList<>();
         Collections.addAll(roles, Role.values());
 
@@ -50,15 +50,19 @@ public class UserUtil {
      */
     public static String getRedirectUrl(UserDetails userDetails) {
         Collection<? extends GrantedAuthority> authorities = userDetails.getAuthorities();
+
         for (GrantedAuthority grantedAuthority : authorities) {
-            if (grantedAuthority.getAuthority().equals(Role.USER.name())) {
+            Role role = Role.valueOf(grantedAuthority.getAuthority());
 
+            if (Role.USER.equals(role)) {
                 return USER_START_URL;
-            } else if (grantedAuthority.getAuthority().equals(Role.ADMIN.name()) || grantedAuthority.getAuthority().equals(Role.SUPER_ADMIN.name())) {
+            }
 
+            if (Role.ADMIN.equals(role) || Role.SUPER_ADMIN.equals(role)) {
                 return ADMIN_START_URL;
             }
         }
+
         throw new IllegalStateException();
     }
 }

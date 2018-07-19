@@ -1,13 +1,11 @@
 package ru.mail.agb88.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import ru.mail.agb88.service.DTO.SensorDTO;
 import ru.mail.agb88.service.DTO.SensorDataDTO;
 import ru.mail.agb88.service.SensorService;
 
@@ -16,12 +14,12 @@ import ru.mail.agb88.service.SensorService;
  */
 
 @Controller
-public class SensorController {
+public class UserController {
 
     private SensorService sensorService;
 
     @Autowired
-    public SensorController(SensorService sensorService) {
+    public UserController(SensorService sensorService) {
         this.sensorService = sensorService;
     }
 
@@ -35,5 +33,10 @@ public class SensorController {
     @RequestMapping(value = "/data", method = RequestMethod.POST)
     public ResponseEntity setData(SensorDataDTO sensorDataDTO) {
         return new ResponseEntity(sensorService.setData(sensorDataDTO));
+    }
+
+    @RequestMapping(value = "/user/account", method = RequestMethod.GET)
+    public String getAccount (Model model) {
+        return "account";
     }
 }
