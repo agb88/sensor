@@ -3,29 +3,36 @@
         "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
+    <!--General template-->
     <definition name="template" template="/WEB-INF/jsp/base/template.jsp">
-        <put-attribute name="style" value=""/>
-        <put-attribute name="js" value=""/>
-        <put-attribute name="menu" value=""/>
+        <put-attribute name="header" value="/WEB-INF/jsp/base/header.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/jsp/base/menu.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/jsp/base/footer.jsp"/>
     </definition>
 
+    <!--Pages-->
+    <!--User page-->
+    <definition name="account" extends="template">
+        <put-attribute name="style" value="user/account.css"/>
+        <put-attribute name="js" value=""/>
+        <put-attribute name="title" value="Кабинет пользователя"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/user/account.jsp"/>
+    </definition>
+
+    <!--Sensor data page-->
     <definition name="data" extends="template">
-        <put-attribute name="style" value="data.css"/>
+        <put-attribute name="style" value=""/>
         <put-attribute name="js" value="data.js"/>
         <put-attribute name="title" value="Сенсор"/>
         <put-attribute name="body" value="/WEB-INF/jsp/data.jsp"/>
     </definition>
+
+    <!--Login page-->
     <definition name="login" extends="template">
         <put-attribute name="style" value="login.css"/>
-        <put-attribute name="js" value=""/>
         <put-attribute name="title" value="Вход"/>
+        <put-attribute name="header" value=""/>
+        <put-attribute name="menu" value=""/>
         <put-attribute name="body" value="/WEB-INF/jsp/login.jsp"/>
-    </definition>
-    <definition name="overview" extends="template">
-        <put-attribute name="style" value="user/overview.css"/>
-        <put-attribute name="js" value=""/>
-        <put-attribute name="title" value="Кабинет пользователя"/>
-        <put-attribute name="body" value="/WEB-INF/jsp/user/overview.jsp"/>
     </definition>
 </tiles-definitions>

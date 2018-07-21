@@ -4,7 +4,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <div class="credentials">
-    <div class="header">
+    <div class="login_header">
         <h3>Авторизация</h3>
     </div>
     <br>

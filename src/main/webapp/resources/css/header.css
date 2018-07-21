@@ -1,0 +1,54 @@
+.header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: fixed;
+    height: 72px;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .3);
+    z-index: 100;
+    box-shadow: 0 0 13px rgba(0, 0, 0, .22);
+    transition: background-color 1s, box-shadow 1s;
+}
+
+.header__scrolled {
+    background-color: rgba(0, 0, 0, .96);
+}
+
+.logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: auto;
+}
+
+.nav-bar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-right: 50px;
+}
+
+.nav-bar__element {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.nav-bar__element > a {
+    padding: 10px 15px;
+    min-width: 50px;
+}
+
+.nav-bar__element > a:hover {
+    background-color: rgba(255, 255, 255, .04);
+    color: #fff;
+}
+
