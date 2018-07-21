@@ -23,13 +23,6 @@ public class UserController {
         this.sensorService = sensorService;
     }
 
-    @RequestMapping(value = "/data", method = RequestMethod.GET)
-    public String getData(Model model) {
-        model.addAttribute("sensors", sensorService.getAll());
-
-        return "data";
-    }
-
     @RequestMapping(value = "/data", method = RequestMethod.POST)
     public ResponseEntity setData(SensorDataDTO sensorDataDTO) {
         return new ResponseEntity(sensorService.setData(sensorDataDTO));
@@ -37,6 +30,8 @@ public class UserController {
 
     @RequestMapping(value = "/user/account", method = RequestMethod.GET)
     public String getAccount (Model model) {
+        model.addAttribute("sensors", sensorService.getAll());
+
         return "account";
     }
 }

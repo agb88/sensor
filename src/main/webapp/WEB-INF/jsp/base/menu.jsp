@@ -1,8 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<ul class="menu">
-    <li class="menu__li"><span class="menu__li__button"><a href="${pageContext.request.contextPath}/">Главная</a></span></li>
-    <li class="menu__li"><span class="menu__li__button"><a href="#">Данные</a></span></li>
-    <li class="menu__li"><span class="menu__li__button"><a href="${pageContext.request.contextPath}/user/account">Статистика</a></span></li>
-    <li class="menu__li"><span class="menu__li__button"><a href="#">Профиль</a></span></li>
-    <li class="menu__li"><span class="menu__li__button"><a href="${pageContext.request.contextPath}/logout">Выход</a></span></li>
-</ul>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<div class="menu">
+    <ul class="menu__ul">
+        <li class="menu__ul__li menu__ul__li_active"><a href="${pageContext.request.contextPath}/user/account" class="element"><i class="glyphicon glyphicon-book"></i>Данные</a></li>
+        <li class="menu__ul__li"><a href="#" class="element"><i class="glyphicon glyphicon-stats"></i>Статистика</a></li>
+    </ul>
+</div>

@@ -1,12 +1,32 @@
 .menu {
-    width: 100%;
-    height: 50px;
+    top: 72px;
+    position: fixed;
+    width: 250px;
+    height: calc(100% - 72px);
+    background-color: rgba(0, 0, 0, .125);
+    padding: 15px;
 }
 
-.menu__li {
+.menu__ul {
 
 }
 
-.menu__li__button {
+.menu__ul__li {
+    margin: 2px 0;
+}
 
+.menu__ul__li > a > i {
+    position: relative;
+    margin-right: 10px;
+}
+
+.menu__ul__li > a {
+    display: block;
+    color: rgba(255, 255, 255, .7);
+    padding: 10px 10px;
+}
+
+.menu__ul__li > a:hover, .menu__ul__li_active {
+    background-color: rgba(255, 255, 255, .04);
+    color: #fff;
 }

@@ -11,6 +11,14 @@
     </definition>
 
     <!--Pages-->
+    <!--User page-->
+    <definition name="account" extends="template">
+        <put-attribute name="style" value="user/account.css"/>
+        <put-attribute name="js" value=""/>
+        <put-attribute name="title" value="Кабинет пользователя"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/user/account.jsp"/>
+    </definition>
+
     <!--Sensor data page-->
     <definition name="data" extends="template">
         <put-attribute name="style" value=""/>
@@ -22,16 +30,9 @@
     <!--Login page-->
     <definition name="login" extends="template">
         <put-attribute name="style" value="login.css"/>
-        <!--<put-attribute name="js" value=""/> Necessary to check if works without this field-->
         <put-attribute name="title" value="Вход"/>
+        <put-attribute name="header" value=""/>
+        <put-attribute name="menu" value=""/>
         <put-attribute name="body" value="/WEB-INF/jsp/login.jsp"/>
-    </definition>
-
-    <!--User page-->
-    <definition name="account" extends="template">
-        <put-attribute name="style" value="user/account.css"/>
-        <put-attribute name="js" value=""/>
-        <put-attribute name="title" value="Кабинет пользователя"/>
-        <put-attribute name="body" value="/WEB-INF/jsp/user/account.jsp"/>
     </definition>
 </tiles-definitions>

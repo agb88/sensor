@@ -11,6 +11,8 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jQuery/jquery-3.3.1.js"></script>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/main.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/header.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/menu.css"/>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 
     <tiles:importAttribute name="style" ignore="true"/>
     <c:if test="${not empty style}">
@@ -25,9 +27,16 @@
 </head>
 <body>
 <%--Header--%>
-<tiles:importAttribute name="header"/>
+<tiles:importAttribute name="header" ignore="true"/>
+<c:if test="${not empty header}">
+    <tiles:insertAttribute name="header"/>
+</c:if>
+
 <%--Left side menu--%>
-<%--<tiles:insertAttribute name="menu"/>--%>
+<tiles:importAttribute name="menu" ignore="true"/>
+<c:if test="${not empty menu}">
+    <tiles:insertAttribute name="menu"/>
+</c:if>
 
 <%--Main content--%>
 <div class="content">
