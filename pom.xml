@@ -14,7 +14,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <hibernate.version>5.2.12.Final</hibernate.version>
         <spring.version>5.0.4.RELEASE</spring.version>
-        <jackson.version>2.9.4</jackson.version>
+        <jackson.version>2.10.3</jackson.version>
         <spring-security.version>5.0.2.RELEASE</spring-security.version>
         <aspectj.version>1.8.13</aspectj.version>
         <tiles.version>3.0.8</tiles.version>
@@ -150,6 +150,11 @@
             <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-el</artifactId>
             <version>${tiles.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+            <version>1.8</version>
         </dependency>
     </dependencies>
 

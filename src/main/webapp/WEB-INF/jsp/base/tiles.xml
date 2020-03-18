@@ -19,14 +19,6 @@
         <put-attribute name="body" value="/WEB-INF/jsp/user/account.jsp"/>
     </definition>
 
-    <!--Sensor data page-->
-    <definition name="data" extends="template">
-        <put-attribute name="style" value=""/>
-        <put-attribute name="js" value="data.js"/>
-        <put-attribute name="title" value="Сенсор"/>
-        <put-attribute name="body" value="/WEB-INF/jsp/data.jsp"/>
-    </definition>
-
     <!--Login page-->
     <definition name="login" extends="template">
         <put-attribute name="style" value="login.css"/>
